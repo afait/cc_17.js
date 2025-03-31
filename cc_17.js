@@ -24,3 +24,4 @@ class Customer {
 const customer1 = new Customer("Mickey Mouse", "ilikecheese@gmail.com");
 customer1.addPurchase(100);
 console.log(`${customer1.name} Spent: $${customer1.getTotalSpent()}`);
+
