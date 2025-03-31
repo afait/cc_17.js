@@ -62,3 +62,27 @@ salesRep.addClient(customer2);
 
 console.log(`Total spent by ${customer1.name}: $${salesRep.getClientTotal("Mickey Mouse")}`);
 console.log(`Total spent by ${customer2.name}: $${salesRep.getClientTotal("Donald Duck")}`);
+
+
+
+
+// Task 3
+
+class VIPCustomer extends Customer {
+    constructor(name, email, viplevel) {
+        super(name, email);
+        this.viplevel = viplevel;
+    }
+
+    getTotalSpent() {
+        const totalWithoutBonus = super.getTotalSpent();
+        const loyaltyBonus = totalWithoutBonus * 0.1;
+        return totalWithoutBonus + loyaltyBonus;
+    }
+    // Calculates amount spent with loyalty bonus
+}
+
+const vipCustomer = new VIPCustomer("Daisy Duck", "bows@gmail.com", "3")
+vipCustomer.addPurchase(500);
+
+console.log(`VIP Customer ${vipCustomer.name} (Level: ${vipCustomer.vipLevel}) Total Spent with Bonus: $${vipCustomer.getTotalSpent().toFixed(2)}`);
